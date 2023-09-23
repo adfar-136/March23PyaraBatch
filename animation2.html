@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            background-color: aqua;
+            width: 200px;
+            animation-name: adfar;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+        #one{
+            animation-timing-function: ease;
+        }
+        #two{
+            animation-timing-function: linear;
+        }
+        #three{
+            animation-timing-function: ease-in;
+        }
+        #four{
+            animation-timing-function: ease-out;
+        }
+        @keyframes adfar{
+            from {
+                margin-left: 70%;
+            }
+            to {
+                margin-left: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 id="one">Adfar Ease</h1>
+    <h1 id="two">Adfar Linear</h1>
+    <h1 id="three">Adfar Ease-in</h1>
+    <h1 id="four">Adfar Ease-out</h1>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+        display: grid;
+        background-color: rgb(76, 193, 193);
+       grid-template-areas: ".... header header"
+       "sidebar content content"
+       "sidebar footer footer"
+       ;
+    }
+    .container div{
+        background-color: aquamarine;
+        margin: 10px;
+        padding: 20px;
+        font-size: 35px;
+    }
+    .item1{
+        grid-area: header;
+    }
+    .item2{
+        grid-area: sidebar;
+    }
+    .item3{
+        grid-area: content;
+    }
+    .item4{
+        grid-area: footer;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="item1">Header</div>
+        <div class="item2">Sidebar</div>
+        <div class="item3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae, dolores.</div>
+        <div class="item4">Footer</div>
+    </div>
+</body>
+</html>

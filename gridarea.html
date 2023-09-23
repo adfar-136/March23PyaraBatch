@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: grid;
+            background-color: aqua;
+            grid-template-areas: "...... header header"
+            "sidebar content content";
+        }
+        .container div{
+            background-color: aquamarine;
+            margin: 10px;
+            padding: 20px;
+            font-size: 35px;
+        }
+        .item1{
+            grid-area: header;
+        }
+        .item2{
+            grid-area: content;
+        }
+        .item3{
+            grid-area: sidebar;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item1">Header</div>
+        <div class="item2">Content</div>
+        <div class="item3">Sidebar</div>
+    </div>
+</body>
+</html>
