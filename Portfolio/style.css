@@ -1,0 +1,83 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    padding: 3%;
+    padding-top: 0.3%;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 2vw 0;
+}
+.links{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+
+}
+.navBarMenu ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+.navBarMenu .links li a{
+    margin:1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.brandLogo{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.brandLogo span{
+    color: #00abae;
+    font-size: 1,5rem;
+    font-weight: bold;
+}
+
+.profile{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.titlePic{
+    margin-top: 2.4rem;
+    margin-left: 1rem;
+}
+.titlePic .profilePic{
+    border-radius: 50%;
+    height: 25rem;
+    border:10px solid #00abae;
+}
+button{
+    padding: 1rem 1.3rem;
+    background-color: #00abae;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    margin: 0rem 1rem 1rem 0;
+}
+button a{
+    color: white;
+}
+.profile{
+    width: 100%;
+    
+}
+.profile .titleDes p{
+    font-size: 1.8rem;
+    padding: 1rem;
+}
+@media screen and (max-width: 600px){
+    section.profile{
+        flex-direction: column-reverse;
+    }
+}
