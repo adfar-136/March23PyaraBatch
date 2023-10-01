@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>ADfarrrrr</h1>
+        <p class="para" id="pp">ADfar1</p>
+        <p class="para">ADfar2</p>
+        <p>ADfar3</p>
+        <p>ADfar4</p>
+    </div>
+    <script>
+       // var element = document.querySelector("div p:nth-child(2n+1)");
+         var element = document.querySelectorAll("p");
+        console.log(element);
+        for(let i = 0;i<element.length;i++){
+            element[i].style.color ="red";
+        }
+    </script>
+</body>
+</html>

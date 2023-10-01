@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p class="para"></p>
+    </div>
+    <div id="main">
+        njjkh
+    </div>
+    <p><h1></h1></p>
+    <button onclick="myFunction()">Change</button>
+    <button onclick="myfun()">Add H1</button>
+    <script>
+        var element = document.getElementsByClassName("para");
+        console.log(element[0]);
+        function myFunction(){
+            for(let i=0;i<element.length;i++){
+                element[i].innerHTML ="Aryan Jain"
+            }
+        }
+        function myfun(){
+            const ele = document.createElement("h1")
+            ele.innerHTML = "Adfar RAshid";
+            ele.style.backgroundColor="pink";
+            document.getElementById("main").appendChild(ele);
+        }
+        
+        
+
+       /*-- var element = document.getElementById("heading");
+        console.log(element);
+       function myFunction(){
+            element.innerHTML="Aryan Jain"
+       }--*/
+
+    </script>
+</body>
+</html>

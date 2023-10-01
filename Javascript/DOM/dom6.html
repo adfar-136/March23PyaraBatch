@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn{
+            color: white;
+            background-color: black;
+            border-radius: 10px;
+            padding: 10px;
+            border: none;
+        }
+        .gurpreet{
+            color: aqua;
+            background-color: blue;
+            border: 2px solid green;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="heading" class="a1-item a2 a3">Adfar Rasheed</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi tenetur eos repudiandae voluptatibus assumenda a reiciendis obcaecati animi incidunt unde, quibusdam debitis quam veniam ullam praesentium sint, non alias eveniet repellat nihil? Animi, harum nisi? Illo maxime nihil eum voluptatibus eos tempore vero voluptate?</p>
+    <button onclick="myfunction()">Add</button>
+    <button onclick="myfunn()">Remove</button>
+    <button onclick="myfun()">Set</button>
+    <button onclick="myfu()">toggle</button>
+    <script>
+      function myfun(){
+      var element =   document.getElementById("heading")
+      element.setAttribute("class","btn")
+      }
+      function myfunction(){
+      var element =   document.getElementById("heading").classList;
+      
+      element.add("gurpreet");
+      console.log(element);
+
+      }
+      function myfunn(){
+        var element =   document.getElementById("heading").classList;
+        element.remove("gurpreet")
+      } 
+      function myfu(){
+        var element =   document.getElementById("heading").classList;
+        element.toggle("gurpreet")
+      }      
+    </script>
+</body>
+</html>

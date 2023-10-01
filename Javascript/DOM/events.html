@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="heading" style="background-color: pink;">Adfar Rasheed</h1>
+    <button onmouseover="myf1()" onmouseout="myf2()">mouseover</button>
+    <button onmouseout="myf2()">mouseout</button>
+    <button onmousedown="myf3()" onmouseup="myf4()">mousedown/up</button>
+    <button onmousemove="myf5()" >mousemove</button>
+
+    <script>
+        var element = document.getElementById("heading")
+        function myf1(){
+             element.style.backgroundColor="blue"
+        }
+        function myf2(){
+            element.style.backgroundColor="brown"
+       }
+       function myf3(){
+        element.style.backgroundColor="green"
+   }
+   function myf4(){
+    element.style.backgroundColor="red"
+}
+function myf5(){
+    element.style.backgroundColor="aqua"
+}
+    </script>
+</body>
+</html>

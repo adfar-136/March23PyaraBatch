@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol id="list">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JS</li>
+        <li>React</li>
+    </ol>
+    <button onclick="myfunction()">Remove</button>
+        <button onclick="myfun()">Replace</button>
+    <script>
+        function myfun(){
+            const element = document.getElementById("list").children[0];
+            console.log(element);
+            const newNode = document.createTextNode("Aryan Adffar");
+            element.replaceChild(newNode,element.childNodes[0])
+        }
+        function myfunction(){
+            let list = document.getElementById("list")
+           // if(list.children[2]){
+            //   list.removeChild(list.children[2])
+            //}
+            //while (list.hasChildNodes()){
+             //   list.removeChild(list.firstChild)
+            //}
+            if (list.hasChildNodes()){
+                list.removeChild(list.firstChild)
+            }
+        }
+    </script>
+</body>
+</html>

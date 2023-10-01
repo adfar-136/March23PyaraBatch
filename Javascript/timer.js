@@ -3,6 +3,8 @@ console.log("2");
 console.log("3");
 setTimeout(function(){
     console.log("4")
-},0)
-
-console.log("5")
+},3000)
+setInterval(()=>{
+    console.log('5')
+},3000)
+console.log("6")
