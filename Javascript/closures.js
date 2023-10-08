@@ -1,9 +1,9 @@
-function a(){
-    var x=10;
-    b();
-    function b(){
-        var y = 20;
-        console.log(x,y)
-    }
+function outerFunction(number) {
+  let initial=3;
+  function innerFunction(newNumber) {
+    initial = initial * newNumber + number;
+    return initial;
+  }
+  return innerFunction(2);
 }
-a();
+console.log(outerFunction(3))// 11

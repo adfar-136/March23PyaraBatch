@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .block{
+            height: 50px;
+            width: 50px;
+            border: 1px solid;
+            margin: 10px;
+        }
+        section.block-walls{
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(4,70px);
+        }
+    </style>
+</head>
+<body>
+    <input type="number" id="wall_id" placeholder="Enter wall id">
+    <input type="text" id="wall_color" placeholder="Enter wall color">
+    <button id="apply-btn">Apply</button>
+    <button id="reset-btn">Reset All</button>
+    <section class="block-walls">
+        <div id="1" class="block" value="1"></div>
+        <div id="2" class="block" value="2"></div>
+        <div id="3" class="block" value="3"></div>
+        <div id="4" class="block" value="4"></div>
+        <div id="5" class="block" value="5"></div>
+        <div id="6" class="block" value="6"></div>
+        <div id="7" class="block" value="7"></div>
+        <div id="8" class="block" value="8"></div>
+        <div id="9" class="block" value="9"></div>
+        <div id="10" class="block" value="10"></div>
+    </section>
+    <script>
+       const wallid = document.getElementById("wall_id");
+       const wallcolor = document.getElementById("wall_color");
+       const applyBtn =document.getElementById('apply-btn');
+       const resetbtn = document.getElementById("reset-btn");
+       const blocks = document.querySelectorAll(".block")
+       console.log(blocks);
+
+       function setBlockColor(block,color){
+          block.style.backgroundColor = color;
+       }
+       function applyColorToBlockID(id,color){
+            const block = document.getElementById(id)
+            setBlockColor(block,color);
+       }
+       applyBtn.addEventListener("click",()=>{
+           const id = wallid.value;
+           const color = wallcolor.value;
+
+           applyColorToBlockID(id,color)
+
+       })
+       resetbtn.addEventListener("click", () => {
+          blocks.forEach((block)=>(block.style.backgroundColor = "transparent"))
+       })
+    </script>
+</body>
+</html>

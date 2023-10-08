@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div onscroll="myFun()" style="height: 200px;width:300px;overflow:auto;margin:auto;">
+        <div id="myDiv" style="width: 250px;height:150px;padding:15px;border:2px solid black">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati sint placeat commodi necessitatibus ratione enim quos et voluptatibus ad sequi!
+
+        </div>
+        <div style="width: 1000px;height:1000px;"></div>
+    </div>
+    <p id="para"></p>
+
+    <script>
+        function myFun(){
+            const element = document.getElementById("myDiv");
+        var rect = element.getBoundingClientRect();
+        console.log(rect);
+        document.getElementById("para").innerHTML = 
+        "left: " + rect.left.toFixed() +"x: " + rect.x + "y: "+ rect.y
+        }
+    </script>
+</body>
+</html>

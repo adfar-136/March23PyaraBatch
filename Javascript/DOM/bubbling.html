@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #gparent{
+            height: 300px;
+            width: 300px;
+            background-color: red;
+        }
+        #parent{
+            height: 200px;
+            width: 200px;
+            background-color: blue;
+        }
+        #child {
+            height: 100px;
+            width: 100px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div id="gparent">
+        <div id="parent">
+            <div onclick="event.stopPropagation()"  id="child"></div>
+        </div>
+    </div>
+    <script>
+        var gparent = document.getElementById("gparent")
+        gparent.addEventListener("click",()=>{
+            console.log("gparent is invoked");
+        },true)
+        var parent = document.getElementById("parent")
+        parent.addEventListener("click",()=>{
+            console.log("parent is invoked");
+        },true)
+        var child = document.getElementById("child");
+        child.addEventListener("click",()=>{
+            console.log("child is invoked");
+        })
+    </script>
+</body>
+</html>
