@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Ajax Application</h1>
+    <button id="fetch">Fetch Adfar</button>
+    <script>
+        let btn = document.getElementById("fetch");
+        btn.addEventListener('click',handler);
+        function handler(){
+            console.log("1");
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET","./dfar.txt",false);
+            xhr.onload = function(){
+                if(this.status === 200){
+                  console.log(this.responseText);
+                } 
+                else if(this.status === 404){
+                    console.log("Error has occured");
+                }
+            }
+            xhr.send();
+            console.log("2");
+        }
+
+    </script>
+</body>
+</html>

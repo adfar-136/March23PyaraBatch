@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Adfar Rashid webpage</h1>
+    <script>
+        let data = fetch("https://newsapi.org/v2/everything?q=cricket&from=2023-09-21&sortBy=publishedAt&apiKey=28a2c6b3aa1945c2afd8012e42fdac9e");
+        //console.log(data)
+        data.then((result)=>{
+        result.json().then((response)=>{
+            response.articles.map((item,index)=>{
+                document.write(`<ul>
+                    <li>${item.title}</li>
+                    <li>${item.description}</li>
+                    <img src=${item.urlToImage}/>
+                </ul>
+                    `)
+            })
+        });
+        }).catch((error)=>{console.log(error);})
+        
+    </script>
+</body>
+</html>

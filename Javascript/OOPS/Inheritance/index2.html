@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Employee{
+            constructor(name,age,salary){
+                this.name = name;
+                this.age= age;
+                this.salary= salary;
+            }
+            info(){
+                document.write(`
+                <h3> EMPLOYEE sALARY</H3> 
+                    Name: ${this.name}  <br>
+                    Age:${this.age} <br>
+                    Salary :${this.salary}`);
+            }
+        }
+        class Educator extends Employee{
+            info(){
+                super.info()
+                let qa = 300;
+                let la = 2000;
+                let totalSalary = this.salary + qa + la;
+                document.write(`
+                <h3> Educator sALARY</H3> 
+                    Name: ${this.name}  <br>
+                    Age:${this.age} <br>
+                    Salary :${totalSalary}`)
+        }
+    }
+       // let a = new Employee("Adfar",34,5000);
+        //a.info()
+        let b = new Educator("Aryan",23,10000);
+        b.info()
+    </script>
+</body>
+</html>

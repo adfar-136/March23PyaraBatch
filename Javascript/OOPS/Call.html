@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let student = {
+            firstName: "Adfar",
+            lastName : "Rasheed",
+            age:35,
+        }
+        let employee = {
+            firstName: "Aryan",
+            lastName : "Jain",
+            age:35,
+        }
+       function getFullName(){
+            return this.getfulllName = this.firstName + " "+ this.lastName
+        }
+        function chooseCompany(company1,Company2){
+          console.log(company1,Company2);
+        }
+    console.log(getFullName.call(employee))
+    //console.log(getFullName.apply(employee))
+       console.log(employee)
+      // console.log(chooseCompany.call(employee,["Google","Amazon"],["Adfarrrr","Ankit"]))
+      // console.log(chooseCompany.apply(employee,["Goggle","Amazonn"]))
+      const gfn= getFullName.bind(employee)
+     console.log(getFullName.bind(employee)())
+      console.log(gfn())
+    </script>
+</body>
+</html>

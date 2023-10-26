@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="quote"></h1>
+    <button onclick="generateJoke()">Generate Joke</button>
+    <script>
+       /*-- function generateJoke(){
+            var data = fetch("https://api.quotable.io/quotes/random");
+            data.then((result)=>{
+                result.json().then((response)=>{
+                    console.log(response);
+                    document.getElementById('quote').innerHTML = response[0].content;
+                })
+            })
+        } --*/
+       async function generateJoke(){
+        var data = await fetch("https://api.quotable.io/quotes/random");
+        let response =  await data.json();
+        document.getElementById('quote').innerHTML = response[0].content;    
+        }
+    </script>
+</body>
+</html>

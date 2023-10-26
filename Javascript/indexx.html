@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const url = fetch("https://newsapi.org/v2/everything?q=tesla&from=2023-09-19&sortBy=publishedAt&apiKey=28a2c6b3aa1945c2afd8012e42fdac9e");
+        url.then((result)=>result.json())
+        .then((data)=>console.log(data))
+
+    </script>
+</body>
+</html>
