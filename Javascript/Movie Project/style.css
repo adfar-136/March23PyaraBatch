@@ -62,8 +62,8 @@ header > a{
     margin-left: 40px;
     gap: 10px;
 }
-.all-tab,
-.favorites-tab{
+#all-tab,
+#favorites-tab{
    width: 100px;
    height: 30px;
    border: none;
@@ -71,7 +71,7 @@ header > a{
    cursor: pointer;
 }
 
-#active-tab{
+.active-tab{
     background-color: #333;
     color: #fff;
 }
@@ -129,7 +129,7 @@ header > a{
     margin-top: 15px;
   }
   
-  .pagination {
+  #pagination {
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
