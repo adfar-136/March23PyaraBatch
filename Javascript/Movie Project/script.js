@@ -10,11 +10,11 @@ function getMovieNamesFromLocalStorage() {
   return favouriteMovies === null ? [] : favouriteMovies;
 }
 
-function addMovieNameToLocalStorage(movieName) {
+function addMovieNameToLocalStorage(movieName,id) {
   const favMoviesNames = getMovieNamesFromLocalStorage();
   localStorage.setItem(
     "favouriteMovies",
-    JSON.stringify([...favMoviesNames, movieName])
+    JSON.stringify([...favMoviesNames,[movieName,id]])
   );
 }
 
@@ -31,7 +31,7 @@ const renderMovies = (movies)=>{
     moviesList.innerHTML = '';
     movies.map((movie)=>{
        const favmovielist = getMovieNamesFromLocalStorage()
-        const {poster_path,title,vote_count,vote_average} = movie;
+        const {poster_path,title,vote_count,vote_average,id} = movie;
         let listItem = document.createElement("li");
         listItem.className = "card";
         listItem.innerHTML = `
@@ -46,19 +46,18 @@ const renderMovies = (movies)=>{
                     <p class="vote-count">${vote_count}</p>
                     <p class="vote-average">${vote_average}</p>
                     </section>
-                    <i class="fav-icon fa-regular fa-heart fa-2xl ${favmovielist.includes(title) ? "fa-solid" : null}" 
-                    data-adfar="${title}" ></i>
+                    <i class="fav-icon fa-regular fa-heart fa-2xl ${favmovielist.find((item)=>item[1]==id) ? "fa-solid" : null}" 
+                    data-adfar="${title}" id="ddd"></i>
                 </section>`;
                 moviesList.appendChild(listItem);
                 const faviconbtn = listItem.querySelector(".fav-icon");
                 faviconbtn.addEventListener("click",(event)=>{
-                      let id = event.target.dataset.adfar;
-                      console.log(id);
+                      let title = event.target.dataset.adfar;
                       if(faviconbtn.classList.contains("fa-solid")){
-                        removeMovieNameFromLocalStorage(id)
+                        removeMovieNameFromLocalStorage(title)
                         faviconbtn.classList.remove("fa-solid")
                       } else{
-                        addMovieNameToLocalStorage(id);
+                        addMovieNameToLocalStorage(title,id);
                         faviconbtn.classList.add("fa-solid");
                       }
 
@@ -217,7 +216,7 @@ const fetchWishlistMovie = async () => {
   moviesList.innerHTML = " ";
   const movieNamesList = getMovieNamesFromLocalStorage();
   for (let i = 0; i < movieNamesList.length; i++) {
-    const movieName = movieNamesList[i];
+    const movieName = movieNamesList[i][0];
     let movieDataFromName = await getMovieByName(movieName);
     showFavourites(movieDataFromName);
   }
@@ -254,8 +253,32 @@ const onsearchChange = async (event)=>{
   } else{
     await searchMovies(value);
   }
-
 }
-searchInput.addEventListener("input",()=>{
-  onsearchChange(event)
+//class4
+// function debounce(func,delay){
+//   let timer;
+//   return (event)=>{
+//     clearTimeout(timer);
+//     timer =setTimeout(()=>{
+//       func(event);
+//     }, delay)
+//   };
+// }
+function throttle(func,delay){
+  let lastCallTime = 0;
+  return (event)=>{
+    const now = Date.now();
+    if(now -lastCallTime >= delay){
+      func(event);
+      lastCallTime=now;
+    }
+  };
+}
+// const debouncesearch = debounce(onsearchChange,1000)
+const throttlsearch = throttle(onsearchChange,1000)
+
+searchInput.addEventListener("input",(event)=>{
+  throttlsearch(event);
 })
+
+
