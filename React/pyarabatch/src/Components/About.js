@@ -18,9 +18,9 @@ export default class About extends Component {
     console.log("componentdidMount");
     setTimeout(()=>{
         this.setState({
-            count :this.state.count+1
+            count :this.state.count+2
     })
-    },1000)
+    },3000);
   }
   render() {
     console.log("render")
