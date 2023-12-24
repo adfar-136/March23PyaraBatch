@@ -6,7 +6,7 @@ export default function Component3() {
   return (
     <div>
        {/* <MyContext.Consumer>
-        {({state,setState})=>{
+        {({state,setState,name,setName})=>{
            return (
             <div>
               <h1>{state}</h1>
