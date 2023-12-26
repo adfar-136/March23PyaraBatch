@@ -1,10 +1,11 @@
 import React from 'react'
+import Navbar from './Navbar'
 import { Outlet } from 'react-router-dom'
 
-export default function About() {
+export default function MainHome() {
   return (
     <div>
-      <h1>About's Page</h1>
+      <Navbar/>
       <Outlet/>
     </div>
   )

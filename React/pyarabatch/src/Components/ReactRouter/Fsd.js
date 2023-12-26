@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Adfar() {
+export default function Fsd() {
   return (
     <div>
-      <h1>Adfar's Page</h1>
+        <h1>FSD component</h1>
     </div>
   )
 }
