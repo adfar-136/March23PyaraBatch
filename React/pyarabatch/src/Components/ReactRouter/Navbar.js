@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom'
 import "../../index.css"
 export default function Navbar() {
   return (
-    <div>
-    <ul>
+    <div >
+    <ul className='Nav'>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/about">About</NavLink></li>
         <li><NavLink to="/contact">Contact</NavLink></li>
