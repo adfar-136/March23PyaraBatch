@@ -1,14 +1,24 @@
-import React from 'react'
-import Modal from './Modal'
-
-export default function App() {
-  const [isOpen, setIsOpen] = React.useState(false)
+import React, { useEffect, useRef } from 'react'
+// import References from './Components/References'
+const ForwardComponent = React.forwardRef((props,ref)=>{
+  console.log(ref)
   return (
-    <div style={{border:"2px solid red"}}>
-      <h1>Hello Adfar</h1>
-      <div id='aryan'></div>
-      <button onClick={()=>setIsOpen(true)}>Show Modal</button>
-      <Modal isOpen={isOpen}/>
+    <div ref={ref}>
+     <h1>Adfar Rashidd</h1>
     </div>
+  )
+})
+export default function App() {
+  const customRef = useRef();
+  useEffect(()=>{
+    if(customRef.current){
+      customRef.current.innerHTML="Adfarrrrrrrr"
+    }
+  })
+  return (
+   <>
+    <ForwardComponent name="Adfar" age="35" ref={customRef}/>
+    {/* <References/> */}
+   </> 
   )
 }
