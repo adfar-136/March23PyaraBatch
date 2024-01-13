@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Child from './Child'
-
 function Parent() {
     const [count,setCount] = useState(0)
   return (
@@ -12,4 +11,4 @@ function Parent() {
     </div>
   )
 }
-export default React.memo(Parent)
+export default React.memo(Parent);
