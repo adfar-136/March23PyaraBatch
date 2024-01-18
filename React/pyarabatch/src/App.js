@@ -1,16 +1,16 @@
 import React from 'react'
-// import Counter from './Components/customHooks/Counter'
-// import Like from './Components/customHooks/Like'
-import List from './Components/customHooks/List'
+import Counterr from './Counterr'
+import Errorboundary from './Errorboundary'
+import Karan from './Karan'
+// import Karan from './Karan'
 
-function App() {
+export default function App() {
   return (
     <div>
-      <List/>
-      {/* <Counter/>
-      <Like/> */}
+      <Errorboundary>
+        <Counterr/>
+      </Errorboundary>
+      <Karan/>
     </div>
   )
 }
-
-export default App

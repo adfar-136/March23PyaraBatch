@@ -171,3 +171,22 @@ function App() {
 }
 
 export default App
+
+
+import React,{Suspense, lazy} from 'react';
+
+const Karan = lazy(()=>import("./Karan"))
+const Ankit = lazy(()=>import("./Ankit"))
+
+export default function App() {
+  return (
+    <div>
+      <Suspense fallback={<h1>Please wait...</h1>}>
+         <Karan/>
+      </Suspense>
+      <Suspense fallback={<h1>Sabar Rakho....</h1>}>
+         <Ankit/>
+      </Suspense>
+    </div>
+  )
+}
