@@ -1,0 +1,23 @@
+.musicCard{
+    height: 200px;
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+}
+.musicCard:hover{
+    cursor: pointer;
+    background-color:#1b1b1b;
+}
+.bannerImg{
+    border-radius: 10px;
+    height: 150px;
+    width: 150x;
+}
+.artist{
+    font-size: 11px;
+    color: #b5b1b1;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
