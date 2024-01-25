@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { getHeaderWithProjectId } from '../utils/config'
 import { MusicProvider } from '../provider/MusicProvider'
 import MusicCard from '../music/MusicCard'
+import MusicPlayer from '../music/MusicPlayer'
 
 export default function Home() {
   const [musicList,setMusicList] = useState([])

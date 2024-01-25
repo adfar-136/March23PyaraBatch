@@ -10,10 +10,14 @@ export default function UserProvider({children}) {
         setUser(userData);
         console.log(userData)
     }
+    const signOutContext=()=>{
+        setUser(null)
+    }
     const value = {
         user,
         signUpContext,
-        signInContext
+        signInContext,
+        signOutContext
     }
   return (
     <userContext.Provider value={value}>
