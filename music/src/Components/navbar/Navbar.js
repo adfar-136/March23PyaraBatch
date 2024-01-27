@@ -19,12 +19,12 @@ export default function Navbar() {
             </li>
             <li className="link-item">
                 <PodcastIcon/>
-                <NavLink to="/social">Home</NavLink>
+                <NavLink to="/social">Social</NavLink>
 
             </li>
             <li className="link-item">
                 <HeadPhoneIcon/>
-                <NavLink to="/social">Library</NavLink>
+                <NavLink to="/library">Library</NavLink>
             </li>
         </ul>
         <SearchBar/>

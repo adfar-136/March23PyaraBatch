@@ -37,6 +37,7 @@ export default function Home() {
             <MusicCard key={i} {...music}/>
           ))}
         </section>
+        <MusicPlayer/>
       </MusicProvider>
     )
   )

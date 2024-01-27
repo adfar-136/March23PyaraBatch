@@ -6,7 +6,7 @@ import {ReactComponent as PauseIcon} from "../../assets/pause.svg"
 import {ReactComponent as PlayIcon} from "../../assets/play.svg"
 import {FaRegHeart,FaHeart} from "react-icons/fa"
 export default function MusicPlayer() {
-  const {selectedMusic} = useMusic()
+  const {selectedMusic,condition} = useMusic()
  const {user} = useUser()
  const audioRef = useRef()
  const [isPlaying,setIsPlaying] = useState(true)
@@ -15,19 +15,24 @@ export default function MusicPlayer() {
  const [addedToWatchList,setAddedToWatchList] = useState(false)
  const navigate = useNavigate();
   const {thumbnail,title,artist,audio_url,_id} = selectedMusic
-  console.log(artist)
- const artistList = artist.map((item)=>item.name).join(" & ")
+ const artistList = artist && artist.map((item)=>item.name).join(" & ")
 
   const getTime = (duration)=>{
     const endTime = Math.ceil(duration);
     let min =Math.floor(endTime /60 ) ;
     let sec = endTime % 60;
+    sec =sec < 10? `0${sec}`:`${sec}`
     return `${min}:${sec}`
   }
   useEffect(()=>{
     if(audioRef.current){
       const endTime = getTime(audioRef.current.duration);
       setEnd(endTime);
+      const handleTimeUpdate =()=>{
+        const currentTime = getTime(audioRef.current.currentTime)
+        setStart(currentTime)
+      }
+      audioRef.current.addEventListener("timeupdate",handleTimeUpdate)
       if(isPlaying){
         audioRef.current.play()
       } else{
@@ -35,33 +40,65 @@ export default function MusicPlayer() {
       }
     }
   },[isPlaying,audioRef])
+  const handleVolumeChange =(e)=>{
+    audioRef.current.volume = e.target.value/100;
+  }
+  const addToFavorite =async (songId,token) =>{
+     return fetch("https://academics.newtonschool.co/api/v1/music/favorites/like",{
+         method:"PATCH",
+         headers:{
+          Authorization :`Bearer ${token}`,
+          projectId:"8nbih316dv01",
+          "Content-Type":"application/json"
+         },
+         body:JSON.stringify({songId})
+        }
+     ).then((response)=>{
+      if(!response.ok){
+        throw new Error("Failed to add to watchlist")
+      } else {
+        return response.json()
+      }
+     })
+  }
+  const handleAddToFavorites=()=>{
+     addToFavorite(_id,user).then((data)=>{
+      setAddedToWatchList(true)
+     })
+  }
   return (
-    <section className="music-player">
+    <>
+      {condition && <section className="music-player">
       <img src={thumbnail} alt={title} width="50" height="50" />
       {user ?(
+        <>
          <div className="song-info">
             <div>{title}</div>
             <div className="artist-list">
               {artistList}
             </div>
-            <button>
+            </div>
+            <button onClick={()=>setIsPlaying(!isPlaying)} className='play-pause'>
               {isPlaying ? <PauseIcon/>:<PlayIcon/>}
             </button>
             <div>{start}</div>
          <div>{end}</div>
-         <input type="range" max={100} value={10}/>
+         <input type="range" max={100} 
+         onChange={handleVolumeChange}
+         value={audioRef.current ? audioRef.current.volume*100 : 0}/>
          <audio src={audio_url} ref={audioRef}/>
-         <div className="heart-icon">
+         <div className="heart-icon" onClick={handleAddToFavorites}>
          {addedToWatchList ? <FaHeart/> : <FaRegHeart/>}
          </div>
-         </div>
+         </>
+        
       ):(
         <>
          <p>Please signUp First</p>
          <button onClick={()=>navigate("/signup")}>Signup here</button>
-         
         </>
       )}
-    </section>
+    </section>}
+    </>
   )
 }

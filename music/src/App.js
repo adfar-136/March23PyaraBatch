@@ -6,7 +6,8 @@ import Signup from './Components/pages/Signup';
 import UserProvider from './Components/provider/UserProvider';
 import SignIn from './Components/pages/SignIn';
 import { MusicProvider } from './Components/provider/MusicProvider';
-import MusicPlayer from './Components/music/MusicPlayer';
+import Library from './Components/pages/Library';
+import Social from './Components/pages/Social';
 
 function App() {
   return (
@@ -15,12 +16,14 @@ function App() {
       <UserProvider>
         <MusicProvider>
         <BrowserRouter>
-        <MusicPlayer/>
       <Navbar/>
        <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/signup" element={<Signup/>}/>
         <Route path='/signin' element={<SignIn/>}/>
+        <Route path='/library' element={<Library/>}/>
+        <Route path='/Social' element={<Social/>}/>
+
        </Routes>
       </BrowserRouter>
         </MusicProvider>
